@@ -1,0 +1,82 @@
+﻿@model we_sessions_prac.Models.Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap.css" type="text/css" />
+          @*<title>Employee List</title>*@
+</head>
+<body>
+    <br /><br />
+          <div class="container">
+              @Html.ActionLink("Log Out", "Logout", "User", null, new { @class = "btn btn-dark float-right", @role = "button" })
+              <br />
+              <table class="table">
+                  <tr>
+                      <th>First Name</th>
+                      <td>@Html.DisplayFor(x => x.FirstName)</td>
+                  </tr>
+                  <tr>
+                      <th>Last Name</th>
+                      <td>@Html.DisplayFor(x => x.LastName)</td>
+                  </tr>
+                  <tr>
+                      <th>City</th>
+                      <td>@Html.DisplayFor(x => x.City)</td>
+                  </tr>
+                  <tr>
+                      <th>Age</th>
+                      <td>@Html.DisplayFor(x => x.Age)</td>
+                  </tr>
+                  <tr>
+                      <th>Salary</th>
+                      <td>@Html.DisplayFor(x => x.Salary)</td>
+                  </tr>
+                  <tr>
+                      <th>Hire Date</th>
+                      <td>@Html.DisplayFor(x => x.ShortHireDate)</td>
+                  </tr>
+              </table>
+              <!--<table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">City</th>
+                <th scope="col">Age</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Hire Data</th>
+                <th scope="col">Department</th>
+            </tr>
+        </thead>
+        <tbody>-->
+              @*@if (Model != null && Model.Count() > 0)
+        {
+            foreach (var emp in Model)
+            {*@
+              <!--<tr>
+        <td scope="row">@Model.EmployeeID</td>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+        <td>@Model.City</td>
+        <td>@Model.Age</td>
+        <td>@Model.Salary</td>
+        <td>@Model.HireDate</td>
+        <td>@Model.Department.Name</td>
+    </tr>-->
+              @*}
+        }*@
+
+              <!--</tbody>
+    </table>-->
+              @Html.ActionLink("Back to Main Page", "Index", "Employee", null, new { @class = "btn btn-dark", @role = "button" })
+          </div>
+    <br />
+</body>
+</html>

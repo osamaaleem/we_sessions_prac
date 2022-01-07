@@ -1,0 +1,19 @@
+﻿@model we_sessions_prac.Models.Login
+@{
+    ViewBag.Title = "Login";
+}
+
+<h<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(x => x.Username)
+    @Html.EditorFor(x => x.Username)
+    @Html.ValidationMessageFor(x => x.Username) <br />
+    @Html.LabelFor(x => x.Password)
+    @Html.EditorFor(x => x.Password)
+    @Html.ValidationMessageFor(x => x.Password) <br />
+    <input type="submit" value="Login" />
+}
+@Html.ActionLink("Register","SignUp","User", null, new { @class = "btn btn-dark", @role = "button" });
+<h5>@ViewBag.ErrorMessage</h5>
+

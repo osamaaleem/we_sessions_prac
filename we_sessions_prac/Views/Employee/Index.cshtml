@@ -1,0 +1,64 @@
+﻿@model IEnumerable<we_sessions_prac.Models.Employee>
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap.css" type="text/css" />
+    @*<title>Employee List</title>*@
+</head>
+<body>
+    <br />
+    <div class="container">
+        @Html.ActionLink("Log Out", "Logout", "User", null, new { @class = "btn btn-dark float-right", @role = "button" })
+        <br />
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Hire Data</th>
+                    <th scope="col">Department</th>
+                    <th style="text-align:center" scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count() > 0)
+                {
+                    foreach (var emp in Model)
+                    {
+                        <tr>
+                            <td scope="row">@emp.EmployeeID</td>
+                            <td>@emp.FirstName</td>
+                            <td>@emp.LastName</td>
+                            <td>@emp.City</td>
+                            <td>@emp.Age</td>
+                            <td>@emp.Salary</td>
+                            <td>@emp.ShortHireDate</td>
+                            <td>@emp.Department.Name</td>
+                            <td colspan="2">
+                                <div class="btn-group" role="group">
+                                    @Html.ActionLink("Details", "Details", "Employee", new { id = emp.EmployeeID }, new { @class = "btn btn-dark", @role = "button" })
+                                    @Html.ActionLink("Edit", "Update", "Employee", new { id = emp.EmployeeID }, new { @class = "btn btn-dark", @role = "button" })
+                                    @Html.ActionLink("Delete", "Delete", "Employee", new { id = emp.EmployeeID }, new { @class = "btn btn-dark", @role = "button" })
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+        @Html.ActionLink("Add Employee", "AddEmp", "Employee", null, new { @class = "btn btn-dark", @role = "button" })
+    </div>
+    <br />
+</body>
+</html>
